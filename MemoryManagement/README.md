@@ -7,7 +7,9 @@ This repository provides examples and supplementary material for the lecture ser
 
 
 ### Cpp
-Simple C++ codes to demonstarte basic concepts on memeory management in C++
+Contains simple C++ codes to demonstrate basic concepts on memory management in C++
 
 ### OpenFOAM
-Two OpenFOAM application to assess and understand the functionality of tmp<>
+Contains two OpenFOAM application to assess and understand the functionality of tmp<>
+
+More information are provided in the lectures.

@@ -24,7 +24,9 @@
         "unordered_map": "cpp",
         "unordered_set": "cpp",
         "vector": "cpp",
-        "system_error": "cpp"
+        "system_error": "cpp",
+        "GeometricField.C": "cpp",
+        "GeometricBoundaryField.C": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

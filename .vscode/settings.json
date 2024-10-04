@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "simpleFoamMemoryTest.C": "cpp",
+        "tmpTest.C": "cpp"
+    }
+}

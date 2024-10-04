@@ -11,7 +11,7 @@
             "program": "${env:FOAM_USER_APPBIN}/simpleFoamMemoryTest",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "/home/saeed/OpenFOAM/saeed-v2406/run/tutorials/incompressible/simpleFoam/motorBike",
+            "cwd": "${env:FOAM_RUN}/tutorials/incompressible/simpleFoam/motorBike",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",

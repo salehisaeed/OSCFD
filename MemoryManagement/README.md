@@ -1,6 +1,7 @@
 # CFD with OpenSource Software
 
-This repository contains test codes and examples for the PhD course **CFD with Open-Source Software** at **Chalmers University of Technology**. The material here is intended to complement the course lectures to enhance your understanding of C++ and OpenFOAM.
 
-For more detailed information about the course, visit the official course homepage:
-https://www.tfd.chalmers.se/~hani/kurser/OS_CFD/
+## Memory Management in C++ and OpenFOAM
+
+This repository provides examples and supplementary material for the lecture series on **Memory Management in C++ and OpenFOAM**. The examples are designed to demonstrate key concepts such as raw pointers, smart pointers, and OpenFOAM's unique memory management mechanisms, including autoPtr<> and tmp<>.
+

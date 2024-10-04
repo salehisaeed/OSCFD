@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="Foam::List&lt;*&gt;">
+    <DisplayString>{{size={size_}}}</DisplayString>
+    <Expand>
+      <Item Name="[size]">size_</Item>
+      <IndexListItems>
+        <Size>size_</Size>
+        <ValueNode>v_[$i]</ValueNode>
+      </IndexListItems>
+    </Expand>
+  </Type>
+	
+  <Type Name="Foam::UList&lt;*&gt;">
+    <DisplayString>{{size={size_}}}</DisplayString>
+    <Expand>
+      <Item Name="[size]">size_</Item>
+      <IndexListItems>
+        <Size>size_</Size>
+        <ValueNode>v_[$i]</ValueNode>
+      </IndexListItems>
+    </Expand>
+  </Type>
+  
+  <Type Name="Foam::Vector&lt;*&gt;">
+    <DisplayString>{{x={v_[0]}, y={v_[1]}, z={v_[2]}}}</DisplayString>
+  </Type>
+
+  <Type Name="Foam::string">
+    <DisplayString>{_M_dataplus._M_p}</DisplayString>
+    <StringView>{_M_dataplus._M_p}</StringView>
+    <Expand>
+      <Item Name="[str]">_M_dataplus._M_p</Item>
+      <Item Name="[size]" ExcludeView="simple">_M_string_length</Item>
+      <ArrayItems ExcludeView="simple">
+        <Size>_M_string_length</Size>
+        <ValuePointer Condition="_M_string_length &gt;= 0">_M_dataplus._M_p</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  
+</AutoVisualizer>

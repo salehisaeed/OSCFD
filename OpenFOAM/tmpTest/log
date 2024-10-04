@@ -1,0 +1,1966 @@
+g++ -std=c++14 -m64 -pthread -DOPENFOAM=2406 -DWM_DP -DWM_LABEL_SIZE=32 -Wall -Wextra -Wold-style-cast -Wnon-virtual-dtor -Wno-unused-parameter -Wno-invalid-offsetof -Wno-attributes -Wno-unknown-pragmas -O0 -fdefault-inline -ggdb3 -DFULLDEBUG -DNoRepository -ftemplate-depth-100  -I/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude -I/home/saeed/OpenFOAM/OpenFOAM-v2406/src/meshTools/lnInclude -iquote. -IlnInclude -I/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude -I/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OSspecific/POSIX/lnInclude   -fPIC -c tmpTest.C -o Make/linux64GccDPInt32Opt/tmpTest.o
+tmpTest.C: In function ‘int main(int, char**)’:
+tmpTest.C:64:57: error: no match for ‘operator+’ (operand types are ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ and ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’)
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                            ~~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+      |                                            |              |
+      |                                            |              shared_ptr<[...]>
+      |                                            shared_ptr<[...]>
+tmpTest.C:64:57: note: candidate: ‘operator+(int, int)’ (built-in)
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                            ~~~~~~~~~~~~~^~~~~~~~~~~~~~
+tmpTest.C:64:57: note:   no known conversion for argument 2 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘int’
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zero.H:129,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/UList.H:51,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/List.H:47,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/instantList.H:38,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TimePaths.H:42,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Time.H:44,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvCFD.H:4,
+                 from tmpTest.C:35:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:45:30: note: candidate: ‘template<class Type> constexpr const Type& Foam::operator+(const Type&, const zero&)’
+   45 | inline constexpr const Type& operator+(const Type& val, const zero&) noexcept
+      |                              ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:45:30: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   cannot convert ‘sharedPtr_m2’ (type ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’) to type ‘const Foam::zero&’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:51:30: note: candidate: ‘template<class Type> constexpr const Type& Foam::operator+(const zero&, const Type&)’
+   51 | inline constexpr const Type& operator+(const zero&, const Type& val) noexcept
+      |                              ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:51:30: note:   template argument deduction/substitution failed:
+tmpTest.C:64:44: note:   cannot convert ‘sharedPtr_m1’ (type ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’) to type ‘const Foam::zero&’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                            ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/VectorSpace.H:276,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Field.H:54,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionSet.H:59,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedType.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedScalar.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TimeState.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Time.H:50:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/VectorSpaceI.H:730:13: note: candidate: ‘template<class Form, class Cmpt, unsigned char Ncmpts> Form Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const VectorSpace<Form, Cmpt, Ncmpts>&)’
+  730 | inline Form operator+
+      |             ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/VectorSpaceI.H:730:13: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/MinMax.H:306,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.H:32,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Field.H:548:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/MinMaxOps.H:316:18: note: candidate: ‘template<class T> Foam::MinMax<Type> Foam::operator+(const MinMax<Type>&, const MinMax<Type>&)’
+  316 | inline MinMax<T> operator+(const MinMax<T>& x, const MinMax<T>& y)
+      |                  ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/MinMaxOps.H:316:18: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::MinMax<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Field.C:835,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Field.H:551:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:782:1: note: candidate: ‘template<class Type1, class Type2> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const UList<T>&, const UList<Key>&)’
+  782 | operator Op(const UList<Type1>& f1, const UList<Type2>& f2)                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:782:1: note:   template argument deduction/substitution failed:
+  782 | operator Op(const UList<Type1>& f1, const UList<Type2>& f2)                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::UList<T>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:792:1: note: candidate: ‘template<class Type1, class Type2> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const UList<T>&, const tmp<Field<Type2> >&)’
+  792 | operator Op(const UList<Type1>& f1, const tmp<Field<Type2>>& tf2)              \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:792:1: note:   template argument deduction/substitution failed:
+  792 | operator Op(const UList<Type1>& f1, const tmp<Field<Type2>>& tf2)              \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::UList<T>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:803:1: note: candidate: ‘template<class Type1, class Type2> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<Field<Type> >&, const UList<Key>&)’
+  803 | operator Op(const tmp<Field<Type1>>& tf1, const UList<Type2>& f2)              \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:803:1: note:   template argument deduction/substitution failed:
+  803 | operator Op(const tmp<Field<Type1>>& tf1, const UList<Type2>& f2)              \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::Field<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:814:1: note: candidate: ‘template<class Type1, class Type2> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<Field<Type> >&, const tmp<Field<Type2> >&)’
+  814 | operator Op(const tmp<Field<Type1>>& tf1, const tmp<Field<Type2>>& tf2)        \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:814:1: note:   template argument deduction/substitution failed:
+  814 | operator Op(const tmp<Field<Type1>>& tf1, const tmp<Field<Type2>>& tf2)        \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::Field<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:839:1: note: candidate: ‘template<class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const UList<T>&, const VectorSpace<Form, Cmpt, nCmpt>&)’
+  839 | operator Op(const UList<Type>& f1, const VectorSpace<Form,Cmpt,nCmpt>& vs)     \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:839:1: note:   template argument deduction/substitution failed:
+  839 | operator Op(const UList<Type>& f1, const VectorSpace<Form,Cmpt,nCmpt>& vs)     \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::UList<T>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:849:1: note: candidate: ‘template<class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<Field<Type> >&, const VectorSpace<Form, Cmpt, nCmpt>&)’
+  849 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:849:1: note:   template argument deduction/substitution failed:
+  849 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::Field<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:877:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Form, Type>::type> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const UList<Type>&)’
+  877 | operator Op(const VectorSpace<Form,Cmpt,nCmpt>& vs, const UList<Type>& f1)     \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:877:1: note:   template argument deduction/substitution failed:
+  877 | operator Op(const VectorSpace<Form,Cmpt,nCmpt>& vs, const UList<Type>& f1)     \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:887:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type> Foam::tmp<Foam::Field<typename Foam::typeOfSum<Form, Type>::type> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const tmp<Field<Type> >&)’
+  887 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:887:1: note:   template argument deduction/substitution failed:
+  887 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctions.C:899:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  899 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Tensor.H:397,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensorI.H:29,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensor.H:316,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/symmTensor.H:47,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/fieldTypes.H:46,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/flipOp.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistributeBaseTemplates.C:31,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistributeBase.H:1222,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldMapper.H:38,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Field.C:29:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:939:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const SphericalTensor<Cmpt>&, const Tensor<Cmpt>&)’
+  939 | operator+(const SphericalTensor<Cmpt>& st1, const Tensor<Cmpt>& t2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:939:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::SphericalTensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:953:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const Tensor<Cmpt>&, const SphericalTensor<Cmpt>&)’
+  953 | operator+(const Tensor<Cmpt>& t1, const SphericalTensor<Cmpt>& st2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:953:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Tensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:967:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const SymmTensor<Cmpt>&, const Tensor<Cmpt>&)’
+  967 | operator+(const SymmTensor<Cmpt>& st1, const Tensor<Cmpt>& t2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:967:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::SymmTensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:981:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const Tensor<Cmpt>&, const SymmTensor<Cmpt>&)’
+  981 | operator+(const Tensor<Cmpt>& t1, const SymmTensor<Cmpt>& st2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TensorI.H:981:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Tensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensorI.H:651:1: note: candidate: ‘template<class Cmpt> Foam::SymmTensor<Cmpt> Foam::operator+(const SphericalTensor<Cmpt>&, const SymmTensor<Cmpt>&)’
+  651 | operator+(const SphericalTensor<Cmpt>& spt1, const SymmTensor<Cmpt>& st2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensorI.H:651:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::SphericalTensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensorI.H:665:1: note: candidate: ‘template<class Cmpt> Foam::SymmTensor<Cmpt> Foam::operator+(const SymmTensor<Cmpt>&, const SphericalTensor<Cmpt>&)’
+  665 | operator+(const SymmTensor<Cmpt>& st1, const SphericalTensor<Cmpt>& spt2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SymmTensorI.H:665:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::SymmTensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.H:638,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/RectangularMatrix.H:45,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarMatrices.H:45,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionSets.H:40,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionSet.H:437:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:778:7: note: candidate: ‘template<class Form1, class Form2, class Type> Form1 Foam::operator+(const Matrix<Form1, Type>&, const Matrix<Form2, Type>&)’
+  778 | Form1 operator+
+      |       ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:778:7: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Matrix<Form1, Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:872:6: note: candidate: ‘template<class Form, class Type> Form Foam::operator+(const Type&, const Matrix<Form, Type>&)’
+  872 | Form operator+(const Type& s, const Matrix<Form, Type>& mat)
+      |      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:872:6: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Matrix<Form, Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:890:6: note: candidate: ‘template<class Form, class Type> Form Foam::operator+(const Matrix<Form, Type>&, const Type&)’
+  890 | Form operator+(const Matrix<Form, Type>& mat, const Type& s)
+      |      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Matrix.C:890:6: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Matrix<Form, Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedType.H:577:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedType.C:820:25: note: candidate: ‘template<class Type> Foam::dimensioned<Type> Foam::operator+(const dimensioned<Type>&, const dimensioned<Type>&)’
+  820 | Foam::dimensioned<Type> Foam::operator+
+      |                         ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedType.C:820:25: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:32,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.H:159,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.H:29,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedField.H:643,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/SlicedDimensionedField.H:39,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMesh.H:63,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvCFD.H:5:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:549:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const dimensioned<double>&, const DimensionedField<double, GeoMesh>&)’
+  549 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:549:44: note:   template argument deduction/substitution failed:
+  549 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<double, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:569:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const scalar&, const DimensionedField<double, GeoMesh>&)’
+  569 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:569:44: note:   template argument deduction/substitution failed:
+  569 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<double, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:580:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const dimensioned<double>&, const tmp<DimensionedField<double, GeoMesh> >&)’
+  580 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:580:44: note:   template argument deduction/substitution failed:
+  580 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<double, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:603:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const scalar&, const tmp<DimensionedField<double, GeoMesh> >&)’
+  603 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:603:44: note:   template argument deduction/substitution failed:
+  603 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:693:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  693 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<double, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:629:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const DimensionedField<double, GeoMesh>&, const dimensioned<double>&)’
+  629 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:629:44: note:   template argument deduction/substitution failed:
+  629 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<double, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:649:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const DimensionedField<double, GeoMesh>&, const scalar&)’
+  649 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:649:44: note:   template argument deduction/substitution failed:
+  649 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<double, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:660:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const tmp<DimensionedField<double, GeoMesh> >&, const dimensioned<double>&)’
+  660 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:660:44: note:   template argument deduction/substitution failed:
+  660 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<double, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:683:44: note: candidate: ‘template<class GeoMesh> Foam::tmp<Foam::DimensionedField<double, GeoMesh> > Foam::operator+(const tmp<DimensionedField<double, GeoMesh> >&, const scalar&)’
+  683 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:683:44: note:   template argument deduction/substitution failed:
+  683 | tmp<DimensionedField<ReturnType, GeoMesh>> operator Op                         \
+      |                                            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctionsM.C:694:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  694 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedScalarField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<double, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedField.C:611,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedField.H:646:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:416:1: note: candidate: ‘template<class Type1, class Type2, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const DimensionedField<TypeR, GeoMesh>&, const DimensionedField<Type1, GeoMesh>&)’
+  416 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:416:1: note:   template argument deduction/substitution failed:
+  416 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<TypeR, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:440:1: note: candidate: ‘template<class Type1, class Type2, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const DimensionedField<TypeR, GeoMesh>&, const tmp<DimensionedField<Type1, GeoMesh> >&)’
+  440 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:440:1: note:   template argument deduction/substitution failed:
+  440 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<TypeR, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:467:1: note: candidate: ‘template<class Type1, class Type2, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const tmp<DimensionedField<TypeR, GeoMesh> >&, const DimensionedField<Type1, GeoMesh>&)’
+  467 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:467:1: note:   template argument deduction/substitution failed:
+  467 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<TypeR, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:494:1: note: candidate: ‘template<class Type1, class Type2, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const tmp<DimensionedField<TypeR, GeoMesh> >&, const tmp<DimensionedField<Type1, GeoMesh> >&)’
+  494 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:494:1: note:   template argument deduction/substitution failed:
+  494 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<TypeR, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:525:1: note: candidate: ‘template<class Form, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Type, Form>::type, GeoMesh> > Foam::operator+(const DimensionedField<Type1, GeoMesh>&, const dimensioned<Type>&)’
+  525 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:525:1: note:   template argument deduction/substitution failed:
+  525 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<Type1, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:549:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Form, Type>::type, GeoMesh> > Foam::operator+(const DimensionedField<Type2, GeoMesh>&, const VectorSpace<Form, Cmpt, Ncmpts>&)’
+  549 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:549:1: note:   template argument deduction/substitution failed:
+  549 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<Type2, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:561:1: note: candidate: ‘template<class Form, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Type, Form>::type, GeoMesh> > Foam::operator+(const tmp<DimensionedField<Type1, GeoMesh> >&, const dimensioned<Type>&)’
+  561 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:561:1: note:   template argument deduction/substitution failed:
+  561 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<Type1, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:588:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Form, Type>::type, GeoMesh> > Foam::operator+(const tmp<DimensionedField<Type2, GeoMesh> >&, const VectorSpace<Form, Cmpt, Ncmpts>&)’
+  588 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:588:1: note:   template argument deduction/substitution failed:
+  588 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<Type2, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:600:1: note: candidate: ‘template<class Form, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const dimensioned<Type>&, const DimensionedField<Type1, GeoMesh>&)’
+  600 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:600:1: note:   template argument deduction/substitution failed:
+  600 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:624:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Form, Type>::type, GeoMesh> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const DimensionedField<Type2, GeoMesh>&)’
+  624 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:624:1: note:   template argument deduction/substitution failed:
+  624 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:636:1: note: candidate: ‘template<class Form, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<arg1, arg2>::type, GeoMesh> > Foam::operator+(const dimensioned<Type>&, const tmp<DimensionedField<Type1, GeoMesh> >&)’
+  636 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:636:1: note:   template argument deduction/substitution failed:
+  636 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:663:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, class GeoMesh> Foam::tmp<Foam::DimensionedField<typename Foam::typeOfSum<Form, Type>::type, GeoMesh> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const tmp<DimensionedField<Type2, GeoMesh> >&)’
+  663 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:663:1: note:   template argument deduction/substitution failed:
+  663 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedFieldFunctions.C:673:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  673 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:35,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.H:164,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.H:29,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldField.H:237,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricBoundaryField.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricField.H:44,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.H:40,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFields.H:40,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/volFields.H:39,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/surfaceInterpolationScheme.C:30,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/surfaceInterpolationScheme.H:306,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/surfaceInterpolate.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvc.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvCFD.H:6:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:388:36: note: candidate: ‘template<template<class> class Field> Foam::tmp<Foam::FieldField<Field, double> > Foam::operator+(const scalar&, const FieldField<Field, double>&)’
+  388 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:458:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  458 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:388:36: note:   template argument deduction/substitution failed:
+  388 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:458:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  458 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, double>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:400:36: note: candidate: ‘template<template<class> class Field> Foam::tmp<Foam::FieldField<Field, double> > Foam::operator+(const scalar&, const tmp<FieldField<Field, double> >&)’
+  400 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:458:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  458 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:400:36: note:   template argument deduction/substitution failed:
+  400 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:458:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  458 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::FieldField<Field, double> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:432:36: note: candidate: ‘template<template<class> class Field> Foam::tmp<Foam::FieldField<Field, double> > Foam::operator+(const FieldField<Field, double>&, const scalar&)’
+  432 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:459:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  459 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:432:36: note:   template argument deduction/substitution failed:
+  432 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:459:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  459 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, double>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:444:36: note: candidate: ‘template<template<class> class Field> Foam::tmp<Foam::FieldField<Field, double> > Foam::operator+(const tmp<FieldField<Field, double> >&, const scalar&)’
+  444 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:459:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  459 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:444:36: note:   template argument deduction/substitution failed:
+  444 | tmp<FieldField<Field, ReturnType>> operator Op                                 \
+      |                                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctionsM.C:459:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  459 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarFieldField.C:88:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   88 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::FieldField<Field, double> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldField.C:503,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldField.H:240:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:691:1: note: candidate: ‘template<template<class> class Field1, template<class> class Field2, class Type1, class Type2> Foam::tmp<Foam::FieldField<Field1, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const FieldField<Field, Type1>&, const FieldField<Field2, Type2>&)’
+  691 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:691:1: note:   template argument deduction/substitution failed:
+  691 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, Type1>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:705:1: note: candidate: ‘template<template<class> class Field, class Type1, class Type2> Foam::tmp<Foam::FieldField<Field, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const FieldField<Field, Type>&, const tmp<FieldField<Field, Type1> >&)’
+  705 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:705:1: note:   template argument deduction/substitution failed:
+  705 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.H:361:1: note: candidate: ‘template<template<class> class Field1, template<class> class Field2, class Type1, class Type2> Foam::tmp<Foam::FieldField<Field1, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const FieldField<Field, Type1>&, const tmp<FieldField<Field2, Type2> >&)’
+  361 | operator op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.H:485:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  485 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.H:361:1: note:   template argument deduction/substitution failed:
+  361 | operator op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.H:485:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  485 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, Type1>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:747:1: note: candidate: ‘template<template<class> class Field1, template<class> class Field2, class Type1, class Type2> Foam::tmp<Foam::FieldField<Field1, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<FieldField<Field, Type1> >&, const FieldField<Field2, Type2>&)’
+  747 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:747:1: note:   template argument deduction/substitution failed:
+  747 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::FieldField<Field, Type1> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:768:1: note: candidate: ‘template<template<class> class Field1, template<class> class Field2, class Type1, class Type2> Foam::tmp<Foam::FieldField<Field1, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<FieldField<Field, Type1> >&, const tmp<FieldField<Field2, Type2> >&)’
+  768 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:768:1: note:   template argument deduction/substitution failed:
+  768 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::FieldField<Field, Type1> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:818:1: note: candidate: ‘template<template<class> class Field, class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::FieldField<Field, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const FieldField<Field, Type>&, const VectorSpace<Form, Cmpt, nCmpt>&)’
+  818 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:818:1: note:   template argument deduction/substitution failed:
+  818 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:839:1: note: candidate: ‘template<template<class> class Field, class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::FieldField<Field, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const tmp<FieldField<Field, Type> >&, const VectorSpace<Form, Cmpt, nCmpt>&)’
+  839 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:839:1: note:   template argument deduction/substitution failed:
+  839 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::FieldField<Field, Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:884:1: note: candidate: ‘template<template<class> class Field, class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::FieldField<Field, typename Foam::typeOfSum<Form, Type>::type> > Foam::operator+(const VectorSpace<Form, Cmpt, nCmpt>&, const FieldField<Field, Type>&)’
+  884 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:884:1: note:   template argument deduction/substitution failed:
+  884 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, nCmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:905:1: note: candidate: ‘template<template<class> class Field, class Type, class Form, class Cmpt, unsigned char nCmpt> Foam::tmp<Foam::FieldField<Field, typename Foam::typeOfSum<Form, Type>::type> > Foam::operator+(const VectorSpace<Form, Cmpt, nCmpt>&, const tmp<FieldField<Field, Type> >&)’
+  905 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:905:1: note:   template argument deduction/substitution failed:
+  905 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, nCmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:726:1: note: candidate: ‘template<template<class> class Field1, template<class> class Field2, class Type1, class Type2> Foam::tmp<Foam::FieldField<Foam::Field, typename Foam::typeOfSum<Type1, Type2>::type> > Foam::operator+(const FieldField<Field, Type1>&, const tmp<FieldField<Field2, Type2> >&)’
+  726 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:726:1: note:   template argument deduction/substitution failed:
+  726 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFieldFunctions.C:918:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  918 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::FieldField<Field, Type1>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DiagTensor.H:152,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensor.H:44,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/coupledPolyPatch.H:44,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistribute.H:142,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/globalMeshDataTemplates.C:31,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/globalMeshData.H:748,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricBoundaryField.C:30,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricBoundaryField.H:286:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DiagTensorI.H:196:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const DiagTensor<Cmpt>&, const Tensor<Cmpt>&)’
+  196 | operator+(const DiagTensor<Cmpt>& dt1, const Tensor<Cmpt>& t2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DiagTensorI.H:196:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DiagTensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DiagTensorI.H:210:1: note: candidate: ‘template<class Cmpt> Foam::Tensor<Cmpt> Foam::operator+(const Tensor<Cmpt>&, const DiagTensor<Cmpt>&)’
+  210 | operator+(const Tensor<Cmpt>& t1, const DiagTensor<Cmpt>& dt2)
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DiagTensorI.H:210:1: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::Tensor<Cmpt>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricField.C:1514,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricField.H:1081:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:650:1: note: candidate: ‘template<class Type1, class Type2, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const GeometricField<TypeR, PatchField, GeoMesh>&, const GeometricField<Type1, PatchField, GeoMesh>&)’
+  650 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:650:1: note:   template argument deduction/substitution failed:
+  650 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<TypeR, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:678:1: note: candidate: ‘template<class Type1, class Type2, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const GeometricField<TypeR, PatchField, GeoMesh>&, const tmp<GeometricField<Type1, PatchField, GeoMesh> >&)’
+  678 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:678:1: note:   template argument deduction/substitution failed:
+  678 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<TypeR, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:708:1: note: candidate: ‘template<class Type1, class Type2, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<TypeR, PatchField, GeoMesh> >&, const GeometricField<Type1, PatchField, GeoMesh>&)’
+  708 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:708:1: note:   template argument deduction/substitution failed:
+  708 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<TypeR, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:738:1: note: candidate: ‘template<class Type1, class Type2, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<TypeR, PatchField, GeoMesh> >&, const tmp<GeometricField<Type1, PatchField, GeoMesh> >&)’
+  738 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:738:1: note:   template argument deduction/substitution failed:
+  738 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<TypeR, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:788:1: note: candidate: ‘template<class Form, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type, Form>::type, PatchField, GeoMesh> > Foam::operator+(const GeometricField<Type1, PatchField, GeoMesh>&, const dimensioned<Type>&)’
+  788 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:788:1: note:   template argument deduction/substitution failed:
+  788 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<Type1, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:818:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Form, Type>::type, PatchField, GeoMesh> > Foam::operator+(const GeometricField<Type2, PatchField, GeoMesh>&, const VectorSpace<Form, Cmpt, Ncmpts>&)’
+  818 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:818:1: note:   template argument deduction/substitution failed:
+  818 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<Type2, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:831:1: note: candidate: ‘template<class Form, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type, Form>::type, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<Type1, PatchField, GeoMesh> >&, const dimensioned<Type>&)’
+  831 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:831:1: note:   template argument deduction/substitution failed:
+  831 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<Type1, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:864:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Form, Type>::type, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<Type2, PatchField, GeoMesh> >&, const VectorSpace<Form, Cmpt, Ncmpts>&)’
+  864 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:864:1: note:   template argument deduction/substitution failed:
+  864 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<Type2, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:896:1: note: candidate: ‘template<class Form, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const dimensioned<Type>&, const GeometricField<Type1, PatchField, GeoMesh>&)’
+  896 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:896:1: note:   template argument deduction/substitution failed:
+  896 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:926:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Form, Type>::type, PatchField, GeoMesh> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const GeometricField<Type2, PatchField, GeoMesh>&)’
+  926 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:926:1: note:   template argument deduction/substitution failed:
+  926 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:938:1: note: candidate: ‘template<class Form, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Type1, Type2>::type, PatchField, GeoMesh> > Foam::operator+(const dimensioned<Type>&, const tmp<GeometricField<Type1, PatchField, GeoMesh> >&)’
+  938 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:938:1: note:   template argument deduction/substitution failed:
+  938 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:971:1: note: candidate: ‘template<class Form, class Cmpt, unsigned char nCmpt, class Type, template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<typename Foam::typeOfSum<Form, Type>::type, PatchField, GeoMesh> > Foam::operator+(const VectorSpace<Form, Cmpt, Ncmpts>&, const tmp<GeometricField<Type2, PatchField, GeoMesh> >&)’
+  971 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:971:1: note:   template argument deduction/substitution failed:
+  971 | operator Op                                                                    \
+      | ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctions.C:981:1: note: in expansion of macro ‘PRODUCT_OPERATOR’
+  981 | PRODUCT_OPERATOR(typeOfSum, +, add)
+      | ^~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::VectorSpace<Form, Cmpt, Ncmpts>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:32,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.H:175:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:617:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const dimensioned<double>&, const GeometricField<double, PatchField, GeoMesh>&)’
+  617 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:617:54: note:   template argument deduction/substitution failed:
+  617 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<double, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:637:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const scalar&, const GeometricField<double, PatchField, GeoMesh>&)’
+  637 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:637:54: note:   template argument deduction/substitution failed:
+  637 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<double, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:648:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const dimensioned<double>&, const tmp<GeometricField<double, PatchField, GeoMesh> >&)’
+  648 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:648:54: note:   template argument deduction/substitution failed:
+  648 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:671:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const scalar&, const tmp<GeometricField<double, PatchField, GeoMesh> >&)’
+  671 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:671:54: note:   template argument deduction/substitution failed:
+  671 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:768:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  768 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpName, OpFunc)      \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:703:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const GeometricField<double, PatchField, GeoMesh>&, const dimensioned<double>&)’
+  703 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:703:54: note:   template argument deduction/substitution failed:
+  703 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<double, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:723:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const GeometricField<double, PatchField, GeoMesh>&, const scalar&)’
+  723 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:723:54: note:   template argument deduction/substitution failed:
+  723 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::GeometricField<double, PatchField, GeoMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:734:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<double, PatchField, GeoMesh> >&, const dimensioned<double>&)’
+  734 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:734:54: note:   template argument deduction/substitution failed:
+  734 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:757:54: note: candidate: ‘template<template<class> class PatchField, class GeoMesh> Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> > Foam::operator+(const tmp<GeometricField<double, PatchField, GeoMesh> >&, const scalar&)’
+  757 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:757:54: note:   template argument deduction/substitution failed:
+  757 | tmp<GeometricField<ReturnType, PatchField, GeoMesh>> operator Op               \
+      |                                                      ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricFieldFunctionsM.C:769:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  769 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpName, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/GeometricScalarField.C:103:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+  103 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, '+', add)
+      | ^~~~~~~~~~~~~~~~~~~~
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<double, PatchField, GeoMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroField.H:102,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldField.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/geometricZeroField.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvcDdt.H:45,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvc.H:46:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:39:20: note: candidate: ‘template<class Type> const Type& Foam::operator+(const Type&, const zeroField&)’
+   39 | inline const Type& operator+(const Type& t, const zeroField&)
+      |                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:39:20: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   cannot convert ‘sharedPtr_m2’ (type ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’) to type ‘const Foam::zeroField&’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:45:20: note: candidate: ‘template<class Type> const Type& Foam::operator+(const zeroField&, const Type&)’
+   45 | inline const Type& operator+(const zeroField&, const Type& t)
+      |                    ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:45:20: note:   template argument deduction/substitution failed:
+tmpTest.C:64:44: note:   cannot convert ‘sharedPtr_m1’ (type ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’) to type ‘const Foam::zeroField&’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                            ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.H:1299,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/ddtScheme.C:32,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/ddtScheme.H:391,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvcDdt.C:30,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvcDdt.H:252:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2222:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const fvMatrix<Type>&)’
+ 2222 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2222:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2235:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const fvMatrix<Type>&)’
+ 2235 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2235:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2248:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const tmp<fvMatrix<Type> >&)’
+ 2248 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2248:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2261:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const tmp<fvMatrix<Type> >&)’
+ 2261 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2261:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2275:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const DimensionedField<Type, volMesh>&)’
+ 2275 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2275:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2288:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const tmp<DimensionedField<Type, volMesh> >&)’
+ 2288 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2288:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2302:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const tmp<GeometricField<Type, fvPatchField, volMesh> >&)’
+ 2302 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2302:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2316:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const DimensionedField<Type, volMesh>&)’
+ 2316 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2316:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2329:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const tmp<DimensionedField<Type, volMesh> >&)’
+ 2329 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2329:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2343:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const tmp<GeometricField<Type, fvPatchField, volMesh> >&)’
+ 2343 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2343:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2357:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const DimensionedField<Type, volMesh>&, const fvMatrix<Type>&)’
+ 2357 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2357:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<Type, Foam::volMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2370:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<DimensionedField<Type, volMesh> >&, const fvMatrix<Type>&)’
+ 2370 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2370:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<Type, Foam::volMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2384:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<GeometricField<Type, fvPatchField, volMesh> >&, const fvMatrix<Type>&)’
+ 2384 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2384:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<Type, Foam::fvPatchField, Foam::volMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2398:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const DimensionedField<Type, volMesh>&, const tmp<fvMatrix<Type> >&)’
+ 2398 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2398:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::DimensionedField<Type, Foam::volMesh>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2411:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<DimensionedField<Type, volMesh> >&, const tmp<fvMatrix<Type> >&)’
+ 2411 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2411:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::DimensionedField<Type, Foam::volMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2425:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<GeometricField<Type, fvPatchField, volMesh> >&, const tmp<fvMatrix<Type> >&)’
+ 2425 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2425:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::GeometricField<Type, Foam::fvPatchField, Foam::volMesh> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2664:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const fvMatrix<Type>&, const dimensioned<Type>&)’
+ 2664 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2664:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::fvMatrix<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2677:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const tmp<fvMatrix<Type> >&, const dimensioned<Type>&)’
+ 2677 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2677:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::tmp<Foam::fvMatrix<Type> >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2690:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const dimensioned<Type>&, const fvMatrix<Type>&)’
+ 2690 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2690:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2703:33: note: candidate: ‘template<class Type> Foam::tmp<Foam::fvMatrix<Type> > Foam::operator+(const dimensioned<Type>&, const tmp<fvMatrix<Type> >&)’
+ 2703 | Foam::tmp<Foam::fvMatrix<Type>> Foam::operator+
+      |                                 ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.C:2703:33: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const Foam::dimensioned<Type>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /usr/include/c++/13/string:48,
+                 from /usr/include/c++/13/bits/locale_classes.h:40,
+                 from /usr/include/c++/13/bits/ios_base.h:41,
+                 from /usr/include/c++/13/ios:44,
+                 from /usr/include/c++/13/ostream:40,
+                 from /usr/include/c++/13/iostream:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/direction.H:43,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/pTraits.H:42,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/char.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/string.H:53,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/word.H:46,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/fileName.H:52,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/TimePaths.H:41:
+/usr/include/c++/13/bits/stl_iterator.h:634:5: note: candidate: ‘template<class _Iterator> std::reverse_iterator<_Iterator> std::operator+(typename reverse_iterator<_Iterator>::difference_type, const reverse_iterator<_Iterator>&)’
+  634 |     operator+(typename reverse_iterator<_Iterator>::difference_type __n,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:634:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::reverse_iterator<_Iterator>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1808:5: note: candidate: ‘template<class _Iterator> std::move_iterator<_IteratorL> std::operator+(typename move_iterator<_IteratorL>::difference_type, const move_iterator<_IteratorL>&)’
+ 1808 |     operator+(typename move_iterator<_Iterator>::difference_type __n,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/stl_iterator.h:1808:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::move_iterator<_IteratorL>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /usr/include/c++/13/string:54:
+/usr/include/c++/13/bits/basic_string.h:3553:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 3553 |     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3553:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3571:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 3571 |     operator+(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3571:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   mismatched types ‘const _CharT*’ and ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3590:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 3590 |     operator+(_CharT __lhs, const basic_string<_CharT,_Traits,_Alloc>& __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3590:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3607:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)’
+ 3607 |     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3607:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3625:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, _CharT)’
+ 3625 |     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs, _CharT __rhs)
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3625:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3637:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const __cxx11::basic_string<_CharT, _Traits, _Alloc>&)’
+ 3637 |     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3637:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3644:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const __cxx11::basic_string<_CharT, _Traits, _Alloc>&, __cxx11::basic_string<_CharT, _Traits, _Alloc>&&)’
+ 3644 |     operator+(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3644:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3651:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, __cxx11::basic_string<_CharT, _Traits, _Alloc>&&)’
+ 3651 |     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3651:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3674:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(const _CharT*, __cxx11::basic_string<_CharT, _Traits, _Alloc>&&)’
+ 3674 |     operator+(const _CharT* __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3674:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   mismatched types ‘const _CharT*’ and ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3681:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(_CharT, __cxx11::basic_string<_CharT, _Traits, _Alloc>&&)’
+ 3681 |     operator+(_CharT __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3681:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3688:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, const _CharT*)’
+ 3688 |     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3688:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3695:5: note: candidate: ‘template<class _CharT, class _Traits, class _Alloc> std::__cxx11::basic_string<_CharT, _Traits, _Alloc> std::operator+(__cxx11::basic_string<_CharT, _Traits, _Alloc>&&, _CharT)’
+ 3695 |     operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      |     ^~~~~~~~
+/usr/include/c++/13/bits/basic_string.h:3695:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complex.H:46,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/tensor.H:52,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/symmTensor.H:50:
+/usr/include/c++/13/complex:335:5: note: candidate: ‘template<class _Tp> std::complex<_Tp> std::operator+(const complex<_Tp>&, const complex<_Tp>&)’
+  335 |     operator+(const complex<_Tp>& __x, const complex<_Tp>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:335:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::complex<_Tp>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/complex:344:5: note: candidate: ‘template<class _Tp> std::complex<_Tp> std::operator+(const complex<_Tp>&, const _Tp&)’
+  344 |     operator+(const complex<_Tp>& __x, const _Tp& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:344:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::complex<_Tp>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/complex:353:5: note: candidate: ‘template<class _Tp> std::complex<_Tp> std::operator+(const _Tp&, const complex<_Tp>&)’
+  353 |     operator+(const _Tp& __x, const complex<_Tp>& __y)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:353:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::complex<_Tp>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/usr/include/c++/13/complex:454:5: note: candidate: ‘template<class _Tp> std::complex<_Tp> std::operator+(const complex<_Tp>&)’
+  454 |     operator+(const complex<_Tp>& __x)
+      |     ^~~~~~~~
+/usr/include/c++/13/complex:454:5: note:   template argument deduction/substitution failed:
+tmpTest.C:64:59: note:   ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ is not derived from ‘const std::complex<_Tp>’
+   64 |     std::shared_ptr<fvVectorMatrix> sum3 = sharedPtr_m1 + sharedPtr_m2;
+      |                                                           ^~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:39:23: note: candidate: ‘constexpr Foam::zero Foam::operator+(const zero&, const zero&)’
+   39 | inline constexpr zero operator+(const zero&, const zero&) noexcept
+      |                       ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroI.H:39:33: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::zero&’
+   39 | inline constexpr zero operator+(const zero&, const zero&) noexcept
+      |                                 ^~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/one.H:110,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/UList.H:52:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/oneI.H:46:15: note: candidate: ‘Foam::scalar Foam::operator+(const scalar&, const one&)’
+   46 | inline scalar operator+(const scalar& t, const one&) noexcept
+      |               ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/oneI.H:46:39: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::scalar&’ {aka ‘const double&’}
+   46 | inline scalar operator+(const scalar& t, const one&) noexcept
+      |                         ~~~~~~~~~~~~~~^
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/oneI.H:51:15: note: candidate: ‘Foam::scalar Foam::operator+(const one&, const scalar&)’
+   51 | inline scalar operator+(const one&, const scalar& t) noexcept
+      |               ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/oneI.H:51:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::one&’
+   51 | inline scalar operator+(const one&, const scalar& t) noexcept
+      |                         ^~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Enum.C:29,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Enum.H:398,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/IOobject.H:104,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/regIOobject.H:46,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/objectRegistry.H:45,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/Time.H:45:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dictionary.H:1553:12: note: candidate: ‘Foam::dictionary Foam::operator+(const dictionary&, const dictionary&)’
+ 1553 | dictionary operator+(const dictionary& dict1, const dictionary& dict2);
+      |            ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dictionary.H:1553:40: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::dictionary&’
+ 1553 | dictionary operator+(const dictionary& dict1, const dictionary& dict2);
+      |                      ~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complex.H:376:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:284:16: note: candidate: ‘Foam::complex Foam::operator+(const complex&, const complex&)’
+  284 | inline complex operator+(const complex& c1, const complex& c2)
+      |                ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:284:41: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::complex&’
+  284 | inline complex operator+(const complex& c1, const complex& c2)
+      |                          ~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:294:16: note: candidate: ‘Foam::complex Foam::operator+(const complex&, scalar)’
+  294 | inline complex operator+(const complex& c, const scalar s)
+      |                ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:294:41: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::complex&’
+  294 | inline complex operator+(const complex& c, const scalar s)
+      |                          ~~~~~~~~~~~~~~~^
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:300:16: note: candidate: ‘Foam::complex Foam::operator+(scalar, const complex&)’
+  300 | inline complex operator+(const scalar s, const complex& c)
+      |                ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/complexI.H:300:39: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘Foam::scalar’ {aka ‘double’}
+  300 | inline complex operator+(const scalar s, const complex& c)
+      |                          ~~~~~~~~~~~~~^
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:45:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:229:24: note: candidate: ‘Foam::tmp<Foam::Field<double> > Foam::operator+(const scalar&, const UList<double>&)’
+  229 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:231:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::scalar&’ {aka ‘const double&’}
+  231 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:236:24: note: candidate: ‘Foam::tmp<Foam::Field<double> > Foam::operator+(const scalar&, const tmp<Field<double> >&)’
+  236 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:238:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::scalar&’ {aka ‘const double&’}
+  238 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:254:24: note: candidate: ‘Foam::tmp<Foam::Field<double> > Foam::operator+(const UList<double>&, const scalar&)’
+  254 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:256:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::UList<double>&’
+  256 |     const UList<Type1>& f1,                                                    \
+      |     ~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:261:24: note: candidate: ‘Foam::tmp<Foam::Field<double> > Foam::operator+(const tmp<Field<double> >&, const scalar&)’
+  261 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:263:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::tmp<Foam::Field<double> >&’
+  263 |     const tmp<Field<Type1>>& tf1,                                              \
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/scalarField.H:91:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   91 | BINARY_TYPE_OPERATOR(scalar, scalar, scalar, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionSet.H:420:14: note: candidate: ‘Foam::dimensionSet Foam::operator+(const dimensionSet&, const dimensionSet&)’
+  420 | dimensionSet operator+(const dimensionSet& ds1, const dimensionSet& ds2);
+      |              ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionSet.H:420:44: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::dimensionSet&’
+  420 | dimensionSet operator+(const dimensionSet& ds1, const dimensionSet& ds2);
+      |                        ~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedScalar.H:52:19: note: candidate: ‘Foam::dimensionedScalar Foam::operator+(const dimensionedScalar&, scalar)’
+   52 | dimensionedScalar operator+(const dimensionedScalar&, const scalar);
+      |                   ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedScalar.H:52:29: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::dimensionedScalar&’ {aka ‘const Foam::dimensioned<double>&’}
+   52 | dimensionedScalar operator+(const dimensionedScalar&, const scalar);
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedScalar.H:53:19: note: candidate: ‘Foam::dimensionedScalar Foam::operator+(scalar, const dimensionedScalar&)’
+   53 | dimensionedScalar operator+(const scalar, const dimensionedScalar&);
+      |                   ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/dimensionedScalar.H:53:29: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘Foam::scalar’ {aka ‘double’}
+   53 | dimensionedScalar operator+(const scalar, const dimensionedScalar&);
+      |                             ^~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:45,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/primitiveFields.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/pointField.H:38,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/edge.H:53,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/edgeList.H:31,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/primitiveMesh.H:57,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/polyMesh.H:48,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMesh.H:53:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:229:24: note: candidate: ‘Foam::tmp<Foam::Field<int> > Foam::operator+(const label&, const UList<int>&)’
+  229 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:231:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::label&’ {aka ‘const int&’}
+  231 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:236:24: note: candidate: ‘Foam::tmp<Foam::Field<int> > Foam::operator+(const label&, const tmp<Field<int> >&)’
+  236 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:238:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::label&’ {aka ‘const int&’}
+  238 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:254:24: note: candidate: ‘Foam::tmp<Foam::Field<int> > Foam::operator+(const UList<int>&, const label&)’
+  254 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:256:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::UList<int>&’
+  256 |     const UList<Type1>& f1,                                                    \
+      |     ~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:261:24: note: candidate: ‘Foam::tmp<Foam::Field<int> > Foam::operator+(const tmp<Field<int> >&, const label&)’
+  261 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:263:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::tmp<Foam::Field<int> >&’
+  263 |     const tmp<Field<Type1>>& tf1,                                              \
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/labelField.H:56:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   56 | BINARY_TYPE_OPERATOR(label, label, label, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/DimensionedField.H:47:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/orientedType.H:219:14: note: candidate: ‘Foam::orientedType Foam::operator+(const orientedType&, const orientedType&)’
+  219 | orientedType operator+(const orientedType& ot1, const orientedType& ot2);
+      |              ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/orientedType.H:219:44: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::orientedType&’
+  219 | orientedType operator+(const orientedType& ot1, const orientedType& ot2);
+      |                        ~~~~~~~~~~~~~~~~~~~~^~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/vectorTensorTransform.H:262,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistribute.H:141:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/vectorTensorTransformI.H:254:36: note: candidate: ‘Foam::vectorTensorTransform Foam::operator+(const vectorTensorTransform&, const vector&)’
+  254 | inline Foam::vectorTensorTransform Foam::operator+
+      |                                    ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/vectorTensorTransformI.H:256:34: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::vectorTensorTransform&’
+  256 |     const vectorTensorTransform& tr,
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/vectorTensorTransformI.H:264:36: note: candidate: ‘Foam::vectorTensorTransform Foam::operator+(const vector&, const vectorTensorTransform&)’
+  264 | inline Foam::vectorTensorTransform Foam::operator+
+      |                                    ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/vectorTensorTransformI.H:266:19: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::vector&’ {aka ‘const Foam::Vector<double>&’}
+  266 |     const vector& t,
+      |     ~~~~~~~~~~~~~~^
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:44:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:188:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const UList<DiagTensor<double> >&, const UList<Tensor<double> >&)’
+  188 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:190:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::UList<Foam::DiagTensor<double> >&’
+  190 |     const UList<Type1>& f1,                                                    \
+      |     ~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:195:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const UList<DiagTensor<double> >&, const tmp<Field<Tensor<double> > >&)’
+  195 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:197:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::UList<Foam::DiagTensor<double> >&’
+  197 |     const UList<Type1>& f1,                                                    \
+      |     ~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:202:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const tmp<Field<DiagTensor<double> > >&, const UList<Tensor<double> >&)’
+  202 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:204:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::tmp<Foam::Field<Foam::DiagTensor<double> > >&’
+  204 |     const tmp<Field<Type1>>& tf1,                                              \
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:209:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const tmp<Field<DiagTensor<double> > >&, const tmp<Field<Tensor<double> > >&)’
+  209 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:211:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::tmp<Foam::Field<Foam::DiagTensor<double> > >&’
+  211 |     const tmp<Field<Type1>>& tf1,                                              \
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:62:1: note: in expansion of macro ‘BINARY_OPERATOR’
+   62 | BINARY_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:229:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const diagTensor&, const UList<Tensor<double> >&)’
+  229 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:231:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::diagTensor&’ {aka ‘const Foam::DiagTensor<double>&’}
+  231 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:236:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const diagTensor&, const tmp<Field<Tensor<double> > >&)’
+  236 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:238:18: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::diagTensor&’ {aka ‘const Foam::DiagTensor<double>&’}
+  238 |     const Type1& s1,                                                           \
+      |     ~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:269:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_SF’
+  269 |     BINARY_TYPE_OPERATOR_SF(ReturnType, Type1, Type2, Op, OpFunc)              \
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:254:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const UList<DiagTensor<double> >&, const tensor&)’
+  254 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:256:25: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::UList<Foam::DiagTensor<double> >&’
+  256 |     const UList<Type1>& f1,                                                    \
+      |     ~~~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:261:24: note: candidate: ‘Foam::tmp<Foam::Field<Foam::Tensor<double> > > Foam::operator+(const tmp<Field<DiagTensor<double> > >&, const tensor&)’
+  261 | tmp<Field<ReturnType>> operator Op                                             \
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:263:30: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::tmp<Foam::Field<Foam::DiagTensor<double> > >&’
+  263 |     const tmp<Field<Type1>>& tf1,                                              \
+      |     ~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/FieldFunctionsM.H:270:5: note: in expansion of macro ‘BINARY_TYPE_OPERATOR_FS’
+  270 |     BINARY_TYPE_OPERATOR_FS(ReturnType, Type1, Type2, Op, OpFunc)
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/diagTensorField.H:65:1: note: in expansion of macro ‘BINARY_TYPE_OPERATOR’
+   65 | BINARY_TYPE_OPERATOR(tensor, diagTensor, tensor, +, add)
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/quaternion.H:352,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/transformField.H:42,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistributeTemplates.C:32,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/mapDistribute.H:772:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/quaternionI.H:710:25: note: candidate: ‘Foam::quaternion Foam::operator+(const quaternion&, const quaternion&)’
+  710 | inline Foam::quaternion Foam::operator+
+      |                         ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/quaternionI.H:712:23: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::quaternion&’
+  712 |     const quaternion& q1,
+      |     ~~~~~~~~~~~~~~~~~~^~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/septernion.H:223,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/transformField.H:43:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/septernionI.H:188:25: note: candidate: ‘Foam::septernion Foam::operator+(const septernion&, const vector&)’
+  188 | inline Foam::septernion Foam::operator+
+      |                         ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/septernionI.H:190:23: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::septernion&’
+  190 |     const septernion& tr,
+      |     ~~~~~~~~~~~~~~~~~~^~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/septernionI.H:198:25: note: candidate: ‘Foam::septernion Foam::operator+(const vector&, const septernion&)’
+  198 | inline Foam::septernion Foam::operator+
+      |                         ^~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/septernionI.H:200:19: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::vector&’ {aka ‘const Foam::Vector<double>&’}
+  200 |     const vector& t,
+      |     ~~~~~~~~~~~~~~^
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:33:24: note: candidate: ‘const Foam::zeroField Foam::operator+(const zeroField&, const zeroField&)’
+   33 | inline const zeroField operator+(const zeroField&, const zeroField&)
+      |                        ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/zeroFieldI.H:33:34: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::zeroField&’
+   33 | inline const zeroField operator+(const zeroField&, const zeroField&)
+      |                                  ^~~~~~~~~~~~~~~~
+In file included from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/clockTime.H:52,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/profiling.H:63,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/meshTools/lnInclude/AMIInterpolationTemplates.C:29,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/meshTools/lnInclude/AMIInterpolation.H:704,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/meshTools/lnInclude/cyclicAMIPolyPatch.H:53,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/cyclicAMIFvPatch.H:41,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/lduPrimitiveMeshAssemblyTemplates.C:31,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/lduPrimitiveMeshAssembly.H:236,
+                 from /home/saeed/OpenFOAM/OpenFOAM-v2406/src/finiteVolume/lnInclude/fvMatrix.H:53:
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/clockValue.H:139:19: note: candidate: ‘Foam::clockValue Foam::operator+(const clockValue&, const clockValue&)’
+  139 | inline clockValue operator+(const clockValue& a, const clockValue& b)
+      |                   ^~~~~~~~
+/home/saeed/OpenFOAM/OpenFOAM-v2406/src/OpenFOAM/lnInclude/clockValue.H:139:47: note:   no known conversion for argument 1 from ‘std::shared_ptr<Foam::fvMatrix<Foam::Vector<double> > >’ to ‘const Foam::clockValue&’
+  139 | inline clockValue operator+(const clockValue& a, const clockValue& b)
+      |                             ~~~~~~~~~~~~~~~~~~^
+make: *** [/home/saeed/OpenFOAM/OpenFOAM-v2406/wmake/rules/General/transform:38: Make/linux64GccDPInt32Opt/tmpTest.o] Error 1

@@ -7,9 +7,9 @@ class myList
 {
 public:
     myList(int size = DEFAULT_SIZE);
-    myList(const myList &); // copy constructor
+    myList(const myList&); // copy constructor
     ~myList();             // destructor
-    myList &operator=(const myList &);
+    myList &operator=(const myList&);
     int get_size();
     int *elements;
 
@@ -24,13 +24,13 @@ myList::myList(int s)
     elements = new int[size];
 }
 
-myList::myList(const myList &s)
+myList::myList(const myList& u)
 {
     cout << " --> copy constructor called <-- \n";
-    size = s.size;
-    elements = new int[s.size];
-    for (int i = 0; i < s.size; i++)
-        elements[i] = s.elements[i];
+    size = u.size;
+    elements = new int[u.size];
+    for (int i = 0; i < u.size; i++)
+        elements[i] = u.elements[i];
 }
 
 myList::~myList()
@@ -39,16 +39,16 @@ myList::~myList()
     delete[] elements;
 }
 
-myList &myList::operator=(const myList &s)
+myList &myList::operator=(const myList& u)
 {
-    if (this == &s)
+    if (this == &u)
         return *this;
 
-    size = s.size;
+    size = u.size;
     delete[] elements;
     elements = new int[size];
     for (int i = 0; i < size; i++)
-        elements[i] = s.elements[i];
+        elements[i] = u.elements[i];
 
     return *this;
 }
@@ -58,24 +58,23 @@ int myList::get_size()
     return size;
 }
 
-void print_list(myList s)
+void print_list(myList v)
 {
     cout << "Print the list" << endl;
-    for (int i = 0; i < s.get_size(); i++)
-        cout << s.elements[i] << endl;
+    for (int i = 0; i < v.get_size(); i++)
+        cout << v.elements[i] << endl;
 }
 
 int main()
 {
     cout << "Hello" << endl;
-    myList s(5);
-    for (int i = 0; i < s.get_size(); i++)
-        s.elements[i] = i;
+    myList u(5);
+    for (int i = 0; i < u.get_size(); i++)
+        u.elements[i] = i;
 
-    myList v = s; // copy constructor called
-    myList w(s);  // copy constructor called
+    myList w(u);     // copy constructor called 
+    myList v = u;    // copy constructor called, because v is uninitialized
 
     myList x;
-    // assignment
-    x = s;
+ 	x = u; // assignment, because x is initialized
 }

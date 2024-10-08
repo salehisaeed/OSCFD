@@ -18,7 +18,7 @@ myList::myList(int s)
     cout << " --> constructor called <-- \n";
     size = s;
     elements = unique_ptr<int[]>(new int[size]); // with new
-    // elements = make_unique<int[]>(size);      // with make_unique
+    // elements = make_unique<int[]>(size);      // with make_unique, recommended
 }
 
 myList::~myList()
@@ -31,7 +31,7 @@ int main()
     cout << "Hello" << endl;
     myList u(5);
     // myList v = u; // compile error due to unique_ptr (no copy constructor)
-    
+
     cout << "Bye" << endl;
 }
 

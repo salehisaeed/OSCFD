@@ -41,6 +41,7 @@ myList::~myList()
 
 myList& myList::operator=(const myList& u)
 {
+    cout << " --> Assignment operator called <-- \n";
     size = u.size;
     delete[] elements;
     elements = new int[size];
@@ -69,9 +70,9 @@ int main()
     for (int i = 0; i < u.get_size(); i++)
         u.elements[i] = i;
 
-    myList v = u;    // copy constructor called 
     myList w(u);     // copy constructor called 
+    myList v = u;    // copy constructor called, because v is uninitialized
 
     myList x;
- 	x = u; // assignment
+ 	x = u; // assignment, because x is initialized
 }

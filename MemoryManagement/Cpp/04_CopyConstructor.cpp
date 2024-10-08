@@ -25,6 +25,7 @@ myList::myList(const myList& u)
 {
     cout << " --> copy constructor called <-- \n";
     size = u.size;
+    // elements = u.elements; // This will do a shallow-copy (default copy constructor)
     elements = new int[u.size];
     for (int i = 0; i < u.size; i++)
         elements[i] = u.elements[i];

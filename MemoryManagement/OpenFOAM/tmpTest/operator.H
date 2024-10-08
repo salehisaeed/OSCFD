@@ -46,7 +46,8 @@ std::shared_ptr<Foam::fvMatrix<Type>> Foam::operator+
     const std::shared_ptr<fvMatrix<Type>>& tB
 )
 {
-    std::shared_ptr<fvMatrix<Type>> tC(new fvMatrix<Type>(*tA));
+    // std::shared_ptr<fvMatrix<Type>> tC(new fvMatrix<Type>(*tA)); // with new
+    std::shared_ptr<fvMatrix<Type>> tC = std::make_shared<fvMatrix<Type>>(*tA); // with make_shared
     *tC += *tB;
     return tC;
 }

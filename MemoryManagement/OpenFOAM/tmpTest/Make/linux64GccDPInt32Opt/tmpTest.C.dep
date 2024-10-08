@@ -872,7 +872,6 @@ $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlTemplates.C \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/solutionControlI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pimpleControlI.H \
 $(WM_PROJECT_DIR)/src/finiteVolume/lnInclude/pisoControlI.H \
-operator.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/setRootCase.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/foamDlOpenLibs.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/createTime.H \

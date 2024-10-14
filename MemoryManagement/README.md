@@ -10,6 +10,6 @@ This repository provides examples and supplementary material for the lecture ser
 Contains simple C++ codes to demonstrate basic concepts on memory management in C++
 
 ### OpenFOAM
-Contains two OpenFOAM application to assess and understand the functionality of tmp<>
+Contains different OpenFOAM applications to assess and understand its memory management system.
 
 More information are provided in the lectures.

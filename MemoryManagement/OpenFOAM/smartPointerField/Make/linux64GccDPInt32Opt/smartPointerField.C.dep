@@ -1,5 +1,5 @@
-$(OBJECTS_DIR)/smartPointerEfficiency.C.dep: \
-smartPointerEfficiency.C \
+$(OBJECTS_DIR)/smartPointerField.C.dep: \
+smartPointerField.C \
 infoField.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/Field.H \
 $(WM_PROJECT_DIR)/src/OpenFOAM/lnInclude/tmp.H \

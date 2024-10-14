@@ -50,12 +50,13 @@ int main(int argc, char *argv[])
     Info<< "pointer: " << name(fieldPtr) << nl;
     Info<< "content: " << fieldPtr() << nl;
 
-    // Copy the pointer (Is it possible?)
+    // Copy the pointer (How is this possible?)
     autoPtr<scalarField> fieldPtrCopy (fieldPtr);
 
     //Accessing both pointers
     Info<< "pointer: " << name(fieldPtrCopy) << nl;
-    Info<< "pointer: " << name(fieldPtr) << nl;
+    Info<< "pointer: " << fieldPtrCopy.good() << nl;
+    Info<< "pointer: " << fieldPtr.good() << nl;
 
     Info << "Bye" << endl;
 

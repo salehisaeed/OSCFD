@@ -31,7 +31,9 @@ Description
     Smart Pointer Efficiency Demo in OpenFOAM for Field<Type>
 
     Demonstrates the efficiency of using smart pointers (tmp<Type>) 
-    versus deep copying in handling large fields.
+    versus deep copying in handling large fields. We initialize a scalar
+    field and pass it to functions that are supposed to some calculations.
+    One function use tmp<> while the other does not.
 
     Author: Saeed Salehi, saeed.salehi@chalmers.se
     The proghram is Inspired by examples from the Book:
@@ -40,7 +42,6 @@ Description
 \*---------------------------------------------------------------------------*/
 
 #include "infoField.H"
-#include "IOstreams.H"
 
 using namespace Foam;
 typedef infoField<scalar> infoScalarField;
@@ -73,11 +74,11 @@ int main(int argc, char *argv[])
 {
     Info << "Hello" << endl;
 
-    Info << "Constructing the intial field: ";
+    Info << "Constructing the initial field" << endl;
     infoScalarField initialField(1e07, 1); // Large field construction.
     
-    infoScalarField finalField;            // Field for value return
-    tmp<infoScalarField> tfinalField;      // Field for pointer return
+    infoScalarField finalField;            // Final field for the value return
+    tmp<infoScalarField> tfinalField;      // Final field for the pointer return
     
     Info << nl << "Calling someOperationValue" << endl;
     finalField = someOperationValue(initialField);
@@ -90,5 +91,9 @@ int main(int argc, char *argv[])
     Info << nl << "Bye" << endl;
     return 0;
 }
+
+// To profile: 
+// valgrind --tool=callgrind --simulate-cache=yes smartPointerField
+// kcachegrind callgrind.out.*****
 
 // ************************************************************************* //

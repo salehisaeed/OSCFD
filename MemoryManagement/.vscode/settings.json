@@ -46,6 +46,8 @@
         "stdexcept": "cpp",
         "streambuf": "cpp",
         "cinttypes": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "tmpTest.C": "cpp",
+        "autoPtrTest.C": "cpp"
     }
 }

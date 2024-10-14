@@ -28,7 +28,7 @@ Application
     tmpTest.C
 
 Description
-    some basic functionalities of tmp class in OpenFOAM
+    some basic functionalities of tmp in OpenFOAM
 
     Author: Saeed Salehi, saeed.salehi@chalmers.se
 

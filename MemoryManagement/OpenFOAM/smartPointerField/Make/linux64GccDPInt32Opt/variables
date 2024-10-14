@@ -1,1 +1,1 @@
-EXE = $(FOAM_USER_APPBIN)/smartPointerEfficiency
+EXE = $(FOAM_USER_APPBIN)/smartPointerField

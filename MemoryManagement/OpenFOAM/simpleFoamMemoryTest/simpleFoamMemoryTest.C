@@ -119,6 +119,8 @@ int main(int argc, char *argv[])
     Info<< "End\n" << endl;
 
     // delete turbulence;
+    // turbulence = NULL;
+
     return 0;
 }
 

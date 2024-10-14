@@ -1,1 +1,1 @@
-EXE = $(FOAM_USER_APPBIN)/tmpTest1
+EXE = $(FOAM_USER_APPBIN)/smartPointerFvMatrix

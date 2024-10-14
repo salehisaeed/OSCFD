@@ -1,4 +1,4 @@
 SOURCE = \
-tmpTest1.C \
+smartPointerFvMatrix.C \
 
 # sources

@@ -25,12 +25,12 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    smartPointerEfficiency.C
+    smartPointerField.C
 
 Description
-    Smart Pointer Efficiency Demo in OpenFOAM
+    Smart Pointer Efficiency Demo in OpenFOAM for Field<Type>
 
-    Demonstrates the efficiency of using smart pointers (`tmp<Type>`) 
+    Demonstrates the efficiency of using smart pointers (tmp<Type>) 
     versus deep copying in handling large fields.
 
     Author: Saeed Salehi, saeed.salehi@chalmers.se

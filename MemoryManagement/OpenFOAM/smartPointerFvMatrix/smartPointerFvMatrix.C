@@ -25,17 +25,21 @@ License
     along with OpenFOAM.  If not, see <http://www.gnu.org/licenses/>.
 
 Application
-    icoFoam
+    smartPointerFvMatrix.C
 
 Description
-    Experimenting with the smart pointers to see how the temporary objects are handled
+    Smart Pointer Efficiency Demo in OpenFOAM for fvMatrix<Type>
 
+    Demonstrates the efficiency of using smart pointers (tmp<Type>) 
+    versus deep copying in handling discretized equations.
+
+    Author: Saeed Salehi, saeed.salehi@chalmers.se
 \*---------------------------------------------------------------------------*/
 
 #include "fvCFD.H"
 #include "pisoControl.H"
 // #include <memory> //not nedded as it is already loaded in OpenFOAM
-// #include "operator.H"
+#include "operator.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
@@ -52,11 +56,11 @@ int main(int argc, char *argv[])
     fvVectorMatrix sum1 = ddt + div;
     tmp<fvVectorMatrix> sum2 = ddt + div;
 
-    // std::shared_ptr<fvVectorMatrix> sharedPtr_m1 = std::make_shared<fvVectorMatrix>(ddt);
-    // std::shared_ptr<fvVectorMatrix> sharedPtr_m2 = std::make_shared<fvVectorMatrix>(div);
+    std::shared_ptr<fvVectorMatrix> sharedPtr_m1 = std::make_shared<fvVectorMatrix>(ddt);
+    std::shared_ptr<fvVectorMatrix> sharedPtr_m2 = std::make_shared<fvVectorMatrix>(div);
 
-    // fvVectorMatrix sum5 = *sharedPtr_m1 + *sharedPtr_m2;
-    // std::shared_ptr<fvVectorMatrix> sum6 = sharedPtr_m1 + sharedPtr_m2;
+    fvVectorMatrix sum5 = *sharedPtr_m1 + *sharedPtr_m2;
+    std::shared_ptr<fvVectorMatrix> sum6 = sharedPtr_m1 + sharedPtr_m2;
 
     return 0;
 }

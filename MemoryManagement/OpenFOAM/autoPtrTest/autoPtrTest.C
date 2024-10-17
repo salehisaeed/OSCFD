@@ -44,14 +44,17 @@ int main(int argc, char *argv[])
 {
     Info << "Hello" << endl;
 
+    // myField = scalarField(10, 1);
+
     autoPtr<scalarField> fieldPtr(new scalarField(10, 1));
 
     // Output the pointer address and data
     Info<< "pointer: " << name(fieldPtr) << nl;
     Info<< "content: " << fieldPtr() << nl;
+    // Info<< "content: " << *fieldPtr << nl;
 
     // Copy the pointer (How is this possible?)
-    autoPtr<scalarField> fieldPtrCopy (fieldPtr);
+    autoPtr<scalarField> fieldPtrCopy(fieldPtr);
 
     //Accessing both pointers
     Info<< "pointer: " << name(fieldPtrCopy) << nl;

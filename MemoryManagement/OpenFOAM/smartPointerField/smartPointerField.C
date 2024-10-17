@@ -37,7 +37,7 @@ Description
 
     Author: Saeed Salehi, saeed.salehi@chalmers.se
     The proghram is Inspired by examples from the Book:
-    Marić et al.  "The OpenFOAM® Technology Primer"
+    Marić et al. "The OpenFOAM® Technology Primer"
 
 \*---------------------------------------------------------------------------*/
 
